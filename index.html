@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+    <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100&display=swap" rel="stylesheet">
+    <title>Frontend Mentor | Ping coming soon page</title>
+    <script src="https://kit.fontawesome.com/8fa57c9260.js" crossorigin="anonymous"></script>
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+
+
+    <style>
+         :root {
+            --Pale-Blue: hsl(223, 100%, 88%);
+            --LightRed: hsl(354, 100%, 66%);
+            --Gray: hsl(0, 0%, 59%);
+            --VeryDarkBlue: hsl(209, 33%, 12%);
+        }
+        
+        .logo {
+            width: clamp(60px, 9vw, 86px);
+            height: auto;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Libre Franklin', sans-serif;
+        }
+        
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+        }
+        
+        .attribution {
+            font-size: 11px;
+            text-align: center;
+        }
+        
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+        
+        h1 {
+            color: var(--Gray);
+            font-weight: 100;
+            font-size: clamp(25px, 3.5vw, 40px);
+            margin: 10px 0 5px;
+        }
+        
+        p {
+            color: var(--Gray);
+            font-size: clamp(12px, 2.5vw, 16px);
+            margin: 0;
+        }
+        
+        span {
+            color: black;
+            font-weight: 1000;
+        }
+        
+        .dashboard {
+            width: clamp(48%, 106%, 500px);
+            height: auto;
+            margin: -15px auto;
+        }
+        
+        input {
+            width: clamp(313px, 28vw, 400px);
+            padding: .8em 1.5em;
+            border-radius: 20px;
+            border: 1px solid var(--Gray);
+            font-weight: 300;
+        }
+        
+        button {
+            /* clamp(150px, 25vw, 250px) */
+            margin-top: 10px;
+            width: 150px;
+            margin-left: 10px;
+            padding: .8em;
+            border-radius: 20px;
+            border: none;
+            background-color: hsl(223, 87%, 63%);
+            color: white;
+        }
+        
+        .container {
+            overflow: hidden;
+            margin: auto;
+            width: 100%;
+            text-align: center;
+            padding: 3vh;
+            padding-bottom: 0px;
+        }
+        
+        i {
+            margin-left: 15px;
+            transform: scale(0.7);
+            color: hsl(223, 87%, 63%);
+        }
+        
+        i:hover {
+            transition: 250ms ease-out;
+            transform: scale(1.0);
+        }
+        
+        button:hover {
+            background-color: hsl(223, 100%, 70%);
+        }
+        
+        .errmsg {
+            display: none;
+            color: var(--LightRed);
+            font-size: 11px;
+            margin-bottom: 0;
+            text-align: left;
+            width: max-content;
+            margin: 3px 2vw -8px;
+        }
+        
+        .forms {
+            width: fit-content;
+            margin: auto;
+        }
+        
+        @media only screen and (max-width:560px) {
+            input {
+                width: 80vw;
+            }
+            button {
+                width: 80vw;
+                margin-left: 0px;
+            }
+            .errmsg {
+                margin: 4px 0 0 10vw;
+            }
+            .se {
+                margin: 2px 0 4px 0;
+            }
+            .dashboard {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+    <script>
+        // function myfunction1() {
+        //     document.getElementById('errmsg1').style.display = "none";
+
+        // }
+
+        function myfunction() {
+            if (document.getElementById('email1').value == "") {
+                document.getElementById('errmsg1').style.display = "block";
+                return false;
+            }
+            // ([a-z]+)([a-z]+)?
+            var validRegex = /^([a-zA-Z0-9\._]{2,})@([a-zA-Z0-9]+\.).([a-z]+)(\.[a-z]{2,})?$/
+            var mail1 = document.getElementById('email1');
+
+            // alert(Boolean(mail1.value.match(validRegex)));
+            if (!(mail1.value.match(validRegex))) {
+                document.getElementById('errmsg1').style.display = "block";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- oninput="myfunction1()" -->
+    <div class="container">
+        <img class="logo" src="logo.svg" alt="logo1">
+        <h1>We are launching <span>soon!</span></h1>
+        <p class="se" style="font-weight: 600;">Subscribe and get notified</p>
+        <div class="forms">
+            <p id="errmsg1" class="errmsg">Please enter a valid email address</p>
+            <input id="email1" placeholder="Your e-mail here" type="email">
+            <button type="submit" onclick="myfunction()"> Notify Me</button><br><br>
+        </div>
+        <img class="dashboard" src="illustration-dashboard.png" alt="illustration-dashboard">
+        <br><br>
+        <i class="fab fa-facebook fa-2x"></i>
+        <i class="fab fa-twitter fa-2x"></i>
+        <i class="fab fa-instagram fa-2x"></i>
+        <p style="font-size: 10px;">
+            &copy; Copyright Ping. All rights reserved.</p>
+    </div>
+</body>
+
+</html>
